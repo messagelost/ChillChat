@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "35c2292e-25b6-4ab7-8f28-3c25b0c5e80a",
+		"name": "用户信息",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34116586"
+	},
+	"item": [
+		{
+			"name": "获取用户信息",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/userInfo/getUserInfo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"userInfo",
+						"getUserInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改用户信息",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatarFile",
+							"type": "file",
+							"src": "/C:/Users/16921/Desktop/春日影 (MyGO!!!!! ver.) - MyGO!!!!!/imgpic_春日影 (MyGO!!!!! ver.) - MyGO!!!!!.jpg"
+						},
+						{
+							"key": "userInfo",
+							"value": "{\n    \"userId\": null,\n    \"nickName\": \"jacob\",\n    \"sex\": 1,\n    \"joinType\": 1,\n    \"personalSignature\": \"hell world\",\n    \"areaCode\": \"020\",\n    \"areaName\": \"广东省广州市\"\n}",
+							"contentType": "application/json",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/userInfo/saveUserInfo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"userInfo",
+						"saveUserInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改密码",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/userInfo/updatePassword?password=654321",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"userInfo",
+						"updatePassword"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "654321"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "32231f33-b929-482f-9f5e-dcd32b6cc061",
+		"name": "聊天",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34116586"
+	},
+	"item": [
+		{
+			"name": "发送信息",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/chat/sendMessage?contactId=G63465739281&messageContent=大家好&messageType=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"chat",
+						"sendMessage"
+					],
+					"query": [
+						{
+							"key": "contactId",
+							"value": "G63465739281"
+						},
+						{
+							"key": "messageContent",
+							"value": "大家好"
+						},
+						{
+							"key": "messageType",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "发送信息test1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": "请求中的token 用于校验登录身份",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/chat/sendMessage?contactId=U96208297822&messageContent=你好&messageType=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"chat",
+								"sendMessage"
+							],
+							"query": [
+								{
+									"key": "contactId",
+									"value": "U96208297822",
+									"description": "联系人id"
+								},
+								{
+									"key": "messageContent",
+									"value": "你好",
+									"description": "信息内容"
+								},
+								{
+									"key": "messageType",
+									"value": "2",
+									"description": "消息类型"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "发送信息test2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:9090/api/chat/sendMessage?contactId=U26595828501&messageContent=晚安&messageType=2",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"chat",
+								"sendMessage"
+							],
+							"query": [
+								{
+									"key": "contactId",
+									"value": "U26595828501"
+								},
+								{
+									"key": "messageContent",
+									"value": "晚安"
+								},
+								{
+									"key": "messageType",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

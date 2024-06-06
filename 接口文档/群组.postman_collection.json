@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "c1f24ab0-f5bd-4db1-9fe4-0c0d8df3a0b0",
+		"name": "群组",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34116586"
+	},
+	"item": [
+		{
+			"name": "加载我的群组",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/group/loadMyGroup",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"group",
+						"loadMyGroup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "创建群组",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						},
+						{
+							"key": "avatarFile",
+							"type": "file",
+							"src": "postman-cloud:///1ef107c2-2b65-4ae0-9171-6ae19f7b913a"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/group/saveGroup?groupName=testGroup1&groupNotice=testNotice1&joinType=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"group",
+						"saveGroup"
+					],
+					"query": [
+						{
+							"key": "groupName",
+							"value": "testGroup1"
+						},
+						{
+							"key": "groupNotice",
+							"value": "testNotice1"
+						},
+						{
+							"key": "joinType",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取群组信息",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/group/getGroupInfo?groupId=G32686086901",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"group",
+						"getGroupInfo"
+					],
+					"query": [
+						{
+							"key": "groupId",
+							"value": "G32686086901"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取群组成员信息",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/group/getGroupInfo4Chat?groupId=G32686086901",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"group",
+						"getGroupInfo4Chat"
+					],
+					"query": [
+						{
+							"key": "groupId",
+							"value": "G32686086901"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加或者移除群成员",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "解散群组",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "退出群组",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"//从环境变量中取出token\r",
+					"var token = pm.environment.get(\"token\")\r",
+					"console.log(\"本次token is \"+token)\r",
+					"//设置请求头 前面是header的value 后面是key\r",
+					"pm.request.headers.add(token, \"token\")\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

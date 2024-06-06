@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "64eeb59a-1991-4f55-8bdc-56c8ce0bce2f",
+		"name": "联系人",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34116586"
+	},
+	"item": [
+		{
+			"name": "查询联系人",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/contact/search?contactId=U07263181647",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contact",
+						"search"
+					],
+					"query": [
+						{
+							"key": "contactId",
+							"value": "U07263181647"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "发送申请",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/contact/applyAdd?contactId=U50436832441&applyInfo=hello",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contact",
+						"applyAdd"
+					],
+					"query": [
+						{
+							"key": "contactId",
+							"value": "U50436832441"
+						},
+						{
+							"key": "applyInfo",
+							"value": "hello"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取所有申请",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/contact/loadApply",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contact",
+						"loadApply"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "处理好友申请",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/contact/dealWithApply?applyId=2&status=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contact",
+						"dealWithApply"
+					],
+					"query": [
+						{
+							"key": "applyId",
+							"value": "2"
+						},
+						{
+							"key": "status",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "加载用户联系人列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/contact/loadContact?contactType=USER",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contact",
+						"loadContact"
+					],
+					"query": [
+						{
+							"key": "contactType",
+							"value": "USER"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取好友联系人信息",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/contact/getContactUserInfo?contactId=U50436832441",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contact",
+						"getContactUserInfo"
+					],
+					"query": [
+						{
+							"key": "contactId",
+							"value": "U50436832441"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取联系人信息",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/contact/getContactInfo?contactId=U50436832441",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contact",
+						"getContactInfo"
+					],
+					"query": [
+						{
+							"key": "contactId",
+							"value": "U50436832441"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除好友",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/contact/delContact?contactId=U50436832441",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contact",
+						"delContact"
+					],
+					"query": [
+						{
+							"key": "contactId",
+							"value": "U50436832441"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "拉黑好友",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/contact/addContact2BlackList?contactId=U50436832441",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contact",
+						"addContact2BlackList"
+					],
+					"query": [
+						{
+							"key": "contactId",
+							"value": "U50436832441"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

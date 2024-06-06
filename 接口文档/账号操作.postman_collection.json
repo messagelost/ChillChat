@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "f44b0ac3-a8b2-42d0-ba81-43b3118f7184",
+		"name": "账号操作",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34116586"
+	},
+	"item": [
+		{
+			"name": "注册",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/account/register?checkCodeKey=1394f0da-f0cd-4983-a067-368313c73962&email=test5@qq.com&password=123456&nickName=test5&checkCode=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"account",
+						"register"
+					],
+					"query": [
+						{
+							"key": "checkCodeKey",
+							"value": "1394f0da-f0cd-4983-a067-368313c73962",
+							"description": "验证码存储在redis中的序列，可进行校验验证码"
+						},
+						{
+							"key": "email",
+							"value": "test5@qq.com",
+							"description": "用户邮箱"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "用户密码"
+						},
+						{
+							"key": "nickName",
+							"value": "test5",
+							"description": "用户昵称"
+						},
+						{
+							"key": "checkCode",
+							"value": "0",
+							"description": "验证码"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取验证码",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/account/checkCode",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"account",
+						"checkCode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登录",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an object with data property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"var responseBody = pm.response.json(); // Define responseBody variable\r",
+							"\r",
+							"//获取data对象的utoken值。\r",
+							"var token = responseBody.data.token;\r",
+							"\r",
+							"//设置成全局变量\r",
+							"pm.globals.set(\"token\", token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/account/login?checkCodeKey=17d21fbd-046d-4a49-9927-2aea48042816&email=test2@qq.com&password=123456&checkCode=-4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"account",
+						"login"
+					],
+					"query": [
+						{
+							"key": "checkCodeKey",
+							"value": "17d21fbd-046d-4a49-9927-2aea48042816"
+						},
+						{
+							"key": "email",
+							"value": "test2@qq.com"
+						},
+						{
+							"key": "password",
+							"value": "123456"
+						},
+						{
+							"key": "checkCode",
+							"value": "-4"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "登录",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/account/login?checkCodeKey=17d21fbd-046d-4a49-9927-2aea48042816&email=test2@qq.com&password=123456&checkCode=-4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"account",
+								"login"
+							],
+							"query": [
+								{
+									"key": "checkCodeKey",
+									"value": "17d21fbd-046d-4a49-9927-2aea48042816"
+								},
+								{
+									"key": "email",
+									"value": "test2@qq.com"
+								},
+								{
+									"key": "password",
+									"value": "123456"
+								},
+								{
+									"key": "checkCode",
+									"value": "-4"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "退出登录",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
